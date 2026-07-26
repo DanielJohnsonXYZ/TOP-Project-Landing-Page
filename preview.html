@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Visibility Preview</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script>
+    fetch('index.html')
+      .then((response) => {
+        if (!response.ok) throw new Error('Unable to load preview');
+        return response.text();
+      })
+      .then((html) => {
+        const parsed = new DOMParser().parseFromString(html, 'text/html');
+        document.title = parsed.title;
+        document.body.replaceWith(parsed.body);
+      })
+      .catch(() => {
+        document.body.innerHTML = '<main style="padding:40px;font-family:system-ui"><h1>Preview unavailable</h1><p>Please open the repository or deploy the site to Vercel.</p></main>';
+      });
+  </script>
+</body>
+</html>
