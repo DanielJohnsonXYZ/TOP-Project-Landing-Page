@@ -1,0 +1,13 @@
+{
+  "name": "ai-visibility-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html styles.css dist/",
+    "dev": "npx serve .",
+    "preview": "npx serve dist"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
